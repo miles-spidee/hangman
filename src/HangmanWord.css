@@ -1,0 +1,30 @@
+.word-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.09em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.letter-slot {
+  min-width: 0.74em;
+  text-align: center;
+  border-bottom: 3px solid #1f2a44;
+}
+
+.letter-slot.space {
+  min-width: 0.42em;
+  border-bottom: none;
+}
+
+.letter {
+  color: #1f2a44;
+}
+
+.letter.revealed-miss {
+  color: #be2d2d;
+}

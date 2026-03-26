@@ -1,0 +1,254 @@
+.app-shell {
+  height: 100vh;
+  padding: 0.7rem;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.game-panel {
+  width: min(1120px, 100%);
+  height: min(96vh, 820px);
+  background: linear-gradient(180deg, #fffaf0 0%, #fde9cc 100%);
+  border: 4px solid #1f2a44;
+  border-radius: 22px;
+  padding: clamp(0.7rem, 2vw, 1.05rem);
+  box-shadow: 0 24px 56px rgba(26, 31, 45, 0.24);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  overflow: hidden;
+}
+
+.panel-header {
+  text-align: center;
+}
+
+.panel-header h1 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.4vw, 2.1rem);
+  font-family: "Bungee", cursive;
+  letter-spacing: 0.03em;
+  color: #1f2a44;
+}
+
+.eyebrow {
+  margin: 0 0 0.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  font-size: 0.66rem;
+  color: #c95025;
+}
+
+.status-banner {
+  margin: 0.2rem auto 0;
+  width: fit-content;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.25rem 0.62rem;
+  border-radius: 999px;
+  border: 2px solid;
+  transition: transform 180ms ease;
+}
+
+.status-banner.idle {
+  color: #24403f;
+  background: #d5f5ef;
+  border-color: #5bc7b6;
+}
+
+.status-banner.win {
+  color: #0f4f2b;
+  background: #d8f7dc;
+  border-color: #65c474;
+}
+
+.status-banner.lose {
+  color: #722626;
+  background: #ffdcdc;
+  border-color: #e17373;
+}
+
+.game-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.48rem;
+}
+
+.meta-card {
+  background: #fff;
+  border: 2px solid #1f2a44;
+  border-radius: 12px;
+  padding: 0.34rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.meta-card .label {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #48526c;
+}
+
+.meta-card strong {
+  margin-top: 0.1rem;
+  font-size: 1rem;
+  color: #1f2a44;
+}
+
+.restart-btn {
+  border: 2px solid #1f2a44;
+  border-radius: 12px;
+  background: #f6a01a;
+  color: #1f2a44;
+  font-weight: 800;
+  font-size: 0.75rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.restart-btn:hover,
+.restart-btn:focus-visible {
+  background: #ffbc4e;
+  transform: translateY(-1px);
+}
+
+.play-area {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1.06fr;
+  gap: 0.72rem;
+  overflow: hidden;
+}
+
+.left-pane,
+.right-pane {
+  min-height: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(31, 42, 68, 0.28);
+  border-radius: 16px;
+  padding: 0.62rem;
+}
+
+.left-pane {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0.62rem;
+}
+
+.right-pane {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.42rem;
+}
+
+.drawing-wrap {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.keyboard-wrap {
+  align-self: stretch;
+  min-height: 0;
+  display: block;
+}
+
+.help-text {
+  margin: 0;
+  font-size: 0.76rem;
+  text-align: left;
+  color: #46506a;
+}
+
+.key-legend {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #2e3853;
+  text-align: left;
+}
+
+.key-legend .good {
+  color: #2d9c89;
+  font-weight: 700;
+}
+
+.key-legend .bad {
+  color: #8b3d3d;
+  font-weight: 700;
+}
+
+.hint-box {
+  border: 2px dashed #9aa3ba;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 0.42rem 0.5rem;
+}
+
+.hint-box.locked {
+  opacity: 0.7;
+}
+
+.hint-box.visible {
+  border-color: #2d9c89;
+  background: #eaf9f5;
+}
+
+.hint-title {
+  margin: 0;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2e3853;
+}
+
+.hint-text {
+  margin: 0.12rem 0 0;
+  font-size: 0.76rem;
+  color: #2d3550;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+    padding: 0.75rem 0.55rem;
+  }
+
+  .game-panel {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    gap: 0.7rem;
+    border-radius: 18px;
+  }
+
+  .game-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .restart-btn {
+    grid-column: span 2;
+    min-height: 42px;
+  }
+
+  .play-area {
+    grid-template-columns: 1fr;
+  }
+
+  .left-pane,
+  .right-pane {
+    padding: 0.55rem;
+  }
+}

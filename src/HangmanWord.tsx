@@ -1,3 +1,5 @@
+import "./HangmanWord.css"
+
 type HangmanWordProps = {
   guessedLetters: string[]
   wordToGuess: string
@@ -9,27 +11,25 @@ export function HangmanWord({
   wordToGuess,
   reveal = false,
 }: HangmanWordProps) {
+  const letterCount = wordToGuess.replace(/\s/g, "").length
+  const responsiveFontSize = `clamp(1.35rem, ${Math.max(
+    2.2,
+    9.8 - letterCount * 0.5
+  )}vw, ${Math.max(1.7, 4.2 - letterCount * 0.2)}rem)`
+
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: ".25em",
-        fontSize: "6rem",
-        fontWeight: "bold",
-        textTransform: "uppercase",
-        fontFamily: "monospace",
-      }}
-    >
+    <div className="word-row" aria-label="word to guess" style={{ fontSize: responsiveFontSize }}>
       {wordToGuess.split("").map((letter, index) => (
-        <span style={{ borderBottom: ".1em solid black" }} key={index}>
+        <span className={`letter-slot ${letter === " " ? "space" : ""}`} key={index}>
           <span
+            className={`letter ${
+              !guessedLetters.includes(letter) && reveal ? "revealed-miss" : ""
+            }`}
             style={{
               visibility:
-                guessedLetters.includes(letter) || reveal
+                letter === " " || guessedLetters.includes(letter) || reveal
                   ? "visible"
                   : "hidden",
-              color:
-                !guessedLetters.includes(letter) && reveal ? "red" : "black",
             }}
           >
             {letter}

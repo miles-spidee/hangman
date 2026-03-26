@@ -1,0 +1,116 @@
+.drawing-area {
+  position: relative;
+  width: clamp(260px, 32vw, 340px);
+  height: clamp(220px, 40vh, 320px);
+}
+
+.drawing-area .head,
+.drawing-area .body,
+.drawing-area .right-arm,
+.drawing-area .left-arm,
+.drawing-area .right-leg,
+.drawing-area .left-leg {
+  background: #1f2a44;
+  position: absolute;
+  animation: part-in 220ms ease-out;
+}
+
+.drawing-area .head {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 9px solid #1f2a44;
+  background: transparent;
+  top: 54px;
+  left: 204px;
+}
+
+.drawing-area .body {
+  width: 10px;
+  height: 94px;
+  top: 118px;
+  left: 230px;
+}
+
+.drawing-area .right-arm {
+  width: 76px;
+  height: 10px;
+  top: 146px;
+  left: 235px;
+  rotate: -30deg;
+  transform-origin: left bottom;
+}
+
+.drawing-area .left-arm {
+  width: 76px;
+  height: 10px;
+  top: 146px;
+  left: 164px;
+  rotate: 30deg;
+  transform-origin: right bottom;
+}
+
+.drawing-area .right-leg {
+  width: 82px;
+  height: 10px;
+  top: 206px;
+  left: 232px;
+  rotate: 55deg;
+  transform-origin: left bottom;
+}
+
+.drawing-area .left-leg {
+  width: 82px;
+  height: 10px;
+  top: 206px;
+  left: 160px;
+  rotate: -55deg;
+  transform-origin: right bottom;
+}
+
+.rope {
+  height: 42px;
+  width: 10px;
+  background: #1f2a44;
+  position: absolute;
+  top: 18px;
+  left: 230px;
+}
+
+.beam {
+  height: 10px;
+  width: 110px;
+  background: #1f2a44;
+  position: absolute;
+  top: 18px;
+  left: 130px;
+}
+
+.pole {
+  height: calc(100% - 28px);
+  width: 10px;
+  background: #1f2a44;
+  position: absolute;
+  top: 18px;
+  left: 130px;
+}
+
+.ground {
+  height: 10px;
+  width: 240px;
+  background: #1f2a44;
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+}
+
+@keyframes part-in {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

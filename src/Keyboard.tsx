@@ -44,10 +44,12 @@ export function Keyboard({
 }: KeyboardProps) {
   return (
     <div
+      aria-label="on-screen keyboard"
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
-        gap: ".5rem",
+        gridTemplateColumns: "repeat(7, minmax(0, 1fr))",
+        gap: ".35rem",
+        alignContent: "start",
       }}
     >
       {KEYS.map(key => {

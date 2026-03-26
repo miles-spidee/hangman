@@ -1,26 +1,37 @@
 .btn {
   width: 100%;
-  border: 3px solid black;
-  background: none;
-  aspect-ratio: 1 / 1;
-  font-size: 2.5rem;
+  border: 2px solid #1f2a44;
+  border-radius: 10px;
+  background: #fff;
+  aspect-ratio: 1.08 / 1;
+  min-height: 0;
+  font-size: clamp(0.95rem, 1.7vw, 1.35rem);
   text-transform: uppercase;
-  padding: .5rem;
-  font-weight: bold;
+  padding: 0.25rem;
+  font-weight: 800;
   cursor: pointer;
-  color: black;
+  color: #1f2a44;
+  transition: transform 130ms ease, background-color 130ms ease, color 130ms ease,
+    opacity 130ms ease;
 }
 
 .btn.active {
-  background-color: hsl(200, 100%, 50%);
+  background-color: #2d9c89;
   color: white;
 }
 
 .btn.inactive {
-  opacity: .3;
+  background-color: #f7d6d6;
+  color: #8b3d3d;
+  opacity: 0.55;
 }
 
 .btn:hover:not(:disabled),
 .btn:focus:not(:disabled) {
-  background-color: hsl(200, 100%, 75%);
+  background-color: #ffd78f;
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
 }
